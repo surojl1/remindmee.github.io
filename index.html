@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7ff">
+  <meta name="description" content="Keep every follow-up on track with RemindMe. Organize tasks by person, add reminders by voice or text, and see what's coming up.">
+  <title>RemindMe — Keep every follow-up on track</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20233a;
+      --muted: #656a82;
+      --accent: #5c6bed;
+      --accent-dark: #4958d5;
+      --surface: #fff;
+      --line: #e7e9f4;
+      --background: #f6f7ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--background);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 28px 0;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+    }
+
+    .mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      background: var(--accent);
+      box-shadow: 0 8px 20px #5c6bed40;
+    }
+
+    .mark svg { width: 23px; height: 23px; }
+
+    main { padding: 44px 0 88px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 56px;
+      padding: 40px 0 76px;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 21px;
+      border-radius: 14px;
+      color: white;
+      background: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .preview {
+      position: relative;
+      padding: 22px;
+      border: 1px solid #ffffff;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #e6e9ff, #f8f6ff 65%);
+      box-shadow: 0 28px 70px #313c7a1a;
+    }
+
+    .preview-label {
+      margin: 2px 0 14px;
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .reminder {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 10px;
+      padding: 15px;
+      border: 1px solid #eef0f7;
+      border-radius: 17px;
+      background: var(--surface);
+      box-shadow: 0 5px 16px #3036590a;
+    }
+
+    .dot {
+      width: 10px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      background: var(--accent);
+    }
+
+    .dot.orange { background: #e8a047; }
+    .dot.green { background: #48a88b; }
+
+    .reminder strong { display: block; font-size: 0.95rem; }
+    .reminder span { color: var(--muted); font-size: 0.82rem; }
+
+    .section-heading {
+      max-width: 610px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 190px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .feature-icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 17px;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--accent-dark);
+      background: #eef0ff;
+      font-size: 1.2rem;
+      font-weight: 750;
+    }
+
+    .feature h3 { margin: 0 0 7px; font-size: 1.02rem; }
+    .feature p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .closing {
+      margin-top: 64px;
+      padding: 38px;
+      border-radius: 24px;
+      color: white;
+      background: var(--ink);
+    }
+
+    .closing h2 { max-width: 580px; }
+    .closing p { max-width: 620px; margin-bottom: 0; color: #d3d6e8; }
+
+    footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 760px) {
+      main { padding-top: 20px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 30px 0 58px; }
+      .preview { max-width: 500px; }
+      .features { grid-template-columns: 1fr; }
+      .feature { min-height: auto; }
+      .closing { margin-top: 48px; padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="13" r="8"></circle>
+          <path d="M12 9v4l2.5 1.5M8 2 5 5m11-3 3 3"></path>
+        </svg>
+      </span>
+      <span>RemindMe</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">A little more peace of mind</p>
+          <h1 id="hero-title">Keep every follow-up on track.</h1>
+          <p class="hero-copy">Organize tasks by person, capture reminders by voice or text, and see what’s coming up—so the important things don’t slip through the cracks.</p>
+          <a class="button" href="#features">Explore RemindMe</a>
+        </div>
+        <div class="preview" aria-label="Example of upcoming reminders">
+          <p class="preview-label">Coming up</p>
+          <div class="reminder">
+            <span class="dot"></span>
+            <div><strong>Follow up with Sam</strong><span>Today · Personal</span></div>
+          </div>
+          <div class="reminder">
+            <span class="dot orange"></span>
+            <div><strong>Send project update</strong><span>Tomorrow · Work</span></div>
+          </div>
+          <div class="reminder">
+            <span class="dot green"></span>
+            <div><strong>Book a check-in</strong><span>Friday · Team</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <p class="eyebrow">Built for real-life follow-ups</p>
+          <h2 id="features-title">Keep the details together.</h2>
+          <p>RemindMe brings your people, tasks, and reminders into one simple place.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">01</span>
+            <h3>Organize by person</h3>
+            <p>Keep tasks grouped around the people and lists that matter to you. Add people manually, import selected contacts, or scan a photo of a name list.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">02</span>
+            <h3>Add reminders naturally</h3>
+            <p>Type or speak a task and set a time with everyday phrases like “tomorrow” or “in 3 hours.”</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">03</span>
+            <h3>Make tasks your own</h3>
+            <p>Add subtasks, tags, and priority levels. Repeat tasks, snooze reminders, or add them to your calendar.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">04</span>
+            <h3>See what’s next</h3>
+            <p>Check upcoming reminders at a glance with the Home Screen and Lock Screen widgets.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">05</span>
+            <h3>Use your voice</h3>
+            <p>Capture a reminder with voice input or use Siri Shortcuts to add one hands-free.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">06</span>
+            <h3>Fit your routine</h3>
+            <p>Choose reminder timing and quiet hours that work for your day.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <h2 id="closing-title">One less thing to keep in your head.</h2>
+        <p>From friends and family to clients and everyday to-dos, RemindMe helps you remember the next thing you meant to do.</p>
+      </section>
+    </main>
+
+    <footer>RemindMe · Keep every follow-up on track.</footer>
+  </div>
+</body>
+</html>
