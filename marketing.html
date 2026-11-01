@@ -38,6 +38,10 @@
       letter-spacing: -0.03em;
     }
 
+    .header-links { display: flex; gap: 20px; margin-left: auto; font-size: 0.9rem; }
+    .header-links a { color: var(--muted); text-decoration: none; }
+    .header-links a:hover { color: var(--accent-dark); }
+
     .mark {
       display: grid;
       width: 42px;
@@ -205,6 +209,9 @@
         </svg>
       </span>
       <span>RemindMe</span>
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="./">App support</a>
+      </nav>
     </header>
 
     <main>
@@ -283,7 +290,7 @@
       </section>
     </main>
 
-    <footer>RemindMe · Tasks and reminders for all of life.</footer>
+    <footer>RemindMe · Tasks and reminders for all of life. · <a href="./">App support</a></footer>
   </div>
 </body>
 </html>

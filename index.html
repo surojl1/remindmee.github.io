@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f7ff">
-  <meta name="description" content="Plan anything with RemindMe: organize tasks in custom tabs, turn spoken or typed time phrases into reminders, and see every to-do in one place.">
-  <title>RemindMe — Tasks and reminders for everything</title>
+  <meta name="description" content="Get help using RemindMe. Find answers about creating reminders, voice input, notifications, widgets, recurring tasks, and app settings.">
+  <title>RemindMe Support</title>
   <style>
     :root {
       color-scheme: light;
@@ -43,6 +43,10 @@
       letter-spacing: -0.03em;
     }
 
+    .header-links { display: flex; gap: 20px; margin-left: auto; font-size: 0.9rem; }
+    .header-links a { color: var(--muted); text-decoration: none; }
+    .header-links a:hover { color: var(--accent-dark); }
+
     .mark {
       display: grid;
       width: 42px;
@@ -60,10 +64,9 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 56px;
-      padding: 40px 0 76px;
+      grid-template-columns: 1fr;
+      max-width: 760px;
+      padding: 40px 0 42px;
     }
 
     .eyebrow {
@@ -107,50 +110,6 @@
 
     .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-    .preview {
-      position: relative;
-      padding: 22px;
-      border: 1px solid #ffffff;
-      border-radius: 28px;
-      background: linear-gradient(145deg, #e6e9ff, #f8f6ff 65%);
-      box-shadow: 0 28px 70px #313c7a1a;
-    }
-
-    .preview-label {
-      margin: 2px 0 14px;
-      color: var(--muted);
-      font-size: 0.77rem;
-      font-weight: 750;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .reminder {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-top: 10px;
-      padding: 15px;
-      border: 1px solid #eef0f7;
-      border-radius: 17px;
-      background: var(--surface);
-      box-shadow: 0 5px 16px #3036590a;
-    }
-
-    .dot {
-      width: 10px;
-      height: 42px;
-      flex: 0 0 auto;
-      border-radius: 8px;
-      background: var(--accent);
-    }
-
-    .dot.orange { background: #e8a047; }
-    .dot.green { background: #48a88b; }
-
-    .reminder strong { display: block; font-size: 0.95rem; }
-    .reminder span { color: var(--muted); font-size: 0.82rem; }
-
     .section-heading {
       max-width: 610px;
       margin-bottom: 30px;
@@ -179,19 +138,6 @@
       background: var(--surface);
     }
 
-    .feature-icon {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      margin-bottom: 17px;
-      place-items: center;
-      border-radius: 13px;
-      color: var(--accent-dark);
-      background: #eef0ff;
-      font-size: 1.2rem;
-      font-weight: 750;
-    }
-
     .feature h3 { margin: 0 0 7px; font-size: 1.02rem; }
     .feature p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
@@ -205,6 +151,7 @@
 
     .closing h2 { max-width: 580px; }
     .closing p { max-width: 620px; margin-bottom: 0; color: #d3d6e8; }
+    .support-action { margin-top: 20px; }
 
     footer {
       padding: 26px 0 34px;
@@ -232,86 +179,76 @@
           <path d="M12 9v4l2.5 1.5M8 2 5 5m11-3 3 3"></path>
         </svg>
       </span>
-      <span>RemindMe</span>
+      <span>RemindMe Support</span>
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="marketing.html">About RemindMe</a>
+      </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">For everything on your mind</p>
-          <h1 id="hero-title">Tasks and reminders for all of life.</h1>
-          <p class="hero-copy">From errands and personal plans to work projects and follow-ups, capture what you need to do by typing or voice. RemindMe recognizes time phrases and can turn them into reminders automatically.</p>
-          <a class="button" href="#features">See what you can do</a>
-        </div>
-        <div class="preview" aria-label="Example of tasks in separate tabs">
-          <p class="preview-label">Your lists, your way</p>
-          <div class="reminder">
-            <span class="dot"></span>
-            <div><strong>Pick up groceries</strong><span>Today · Home</span></div>
-          </div>
-          <div class="reminder">
-            <span class="dot orange"></span>
-            <div><strong>Send project update</strong><span>Tomorrow · Work</span></div>
-          </div>
-          <div class="reminder">
-            <span class="dot green"></span>
-            <div><strong>Call back Sam</strong><span>Friday · People</span></div>
-          </div>
+          <p class="eyebrow">Help using the app</p>
+          <h1 id="hero-title">How can we help?</h1>
+          <p class="hero-copy">Find quick answers to common questions about creating tasks, setting reminders, voice input, notifications, and widgets.</p>
+          <a class="button" href="#help">Browse help topics</a>
         </div>
       </section>
 
-      <section id="features" aria-labelledby="features-title">
+      <section id="help" aria-labelledby="help-title">
         <div class="section-heading">
-          <p class="eyebrow">A flexible way to stay organized</p>
-          <h2 id="features-title">Make RemindMe fit your life.</h2>
-          <p>Build separate spaces for the things you do, then bring all your tasks together when you need the full picture.</p>
+          <p class="eyebrow">Help topics</p>
+          <h2 id="help-title">Answers to common questions.</h2>
+          <p>If you’re new to RemindMe, start with the basics below. You can also browse the <a href="marketing.html">app overview</a>.</p>
         </div>
         <div class="features">
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">01</span>
-            <h3>Separate tabs for every area</h3>
-            <p>Create and name tabs for work, home, projects, clients, or anything else. Keep each area organized, with the option to group tasks by person when that helps.</p>
+            <h3>How do I add a task or reminder?</h3>
+            <p>Open the relevant tab and list, then tap + to add a task. Type or dictate its title. If the text includes a recognized time phrase, such as “tomorrow at 3pm” or “in 2 hours,” RemindMe shows the interpreted reminder time before you save. To choose another time, turn on “Set time manually.”</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">02</span>
-            <h3>Turn words into reminders</h3>
-            <p>Type or dictate a task with a time phrase like “tomorrow at 3” or “in 2 hours.” RemindMe recognizes the date and time and sets the reminder for you. You can also choose a time manually.</p>
+            <h3>How do I organize tasks into tabs?</h3>
+            <p>Open Settings from a tab to rename it, choose an icon, or add another tab. Name tabs for any area of life, such as Home, Work, or Projects. The To-Do tab brings tasks together and lets you search, sort, and filter them.</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">03</span>
-            <h3>See every to-do together</h3>
-            <p>Use the To-Do view to search across your tasks, switch between open and completed items, sort by time or priority, and filter by tag or list.</p>
+            <h3>Why didn’t my typed or spoken time become a reminder?</h3>
+            <p>RemindMe sets a reminder when it recognizes a supported date or time phrase. Try a clear phrase such as “in 30 minutes,” “tomorrow at 9am,” “next Monday,” or “every weekday at 8am.” Check the interpreted time in the add screen, or set a time manually.</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">04</span>
-            <h3>Stay on top of details</h3>
-            <p>Break tasks into subtasks, add tags and priority, and set reminders to repeat daily, on weekdays, weekly, or monthly.</p>
+            <h3>Voice input isn’t working. What should I check?</h3>
+            <p>Voice input needs microphone and speech recognition access. On your iPhone, open Settings and check RemindMe’s permissions. Also make sure speech recognition is available for your device and language. You can always type the task instead.</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">05</span>
-            <h3>Reminders that follow through</h3>
-            <p>Get repeat alerts, set quiet hours, and mark a task done or snooze it right from its notification. High-priority reminders can break through quiet hours.</p>
+            <h3>Why didn’t I receive a notification?</h3>
+            <p>Check that notifications are allowed for RemindMe in iPhone Settings, and that the task has a future reminder time. Reminders during configured quiet hours are delayed until quiet hours end; high-priority reminders can still come through.</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">06</span>
-            <h3>Quick ways to capture and check in</h3>
-            <p>Add reminders with Siri Shortcuts, see what’s next on Home Screen and Lock Screen widgets, or add a timed reminder to your calendar.</p>
+            <h3>How do snooze and repeat alerts work?</h3>
+            <p>Use Done or a snooze option on a reminder notification, or snooze a task from its menu. In Settings, choose how many repeat alerts to schedule and the interval between them. A repeating task advances to its next occurrence when completed.</p>
           </article>
           <article class="feature">
-            <span class="feature-icon" aria-hidden="true">07</span>
-            <h3>Bring in people when useful</h3>
-            <p>Keep contact details and related follow-ups together. Add people from selected contacts or scan a photo of a name list.</p>
+            <h3>How do I change reminder timing or quiet hours?</h3>
+            <p>Open Settings from a tab. There you can adjust repeat alerts, the default morning time used for phrases like “tomorrow,” and optional quiet hours. Save changes with Done.</p>
+          </article>
+          <article class="feature">
+            <h3>Why isn’t my widget up to date?</h3>
+            <p>Open RemindMe to refresh the upcoming reminder list, then give iOS a moment to update the widget. iOS controls how often widgets refresh, so an update may not appear immediately.</p>
+          </article>
+          <article class="feature">
+            <h3>How do I use Siri or add a reminder to Calendar?</h3>
+            <p>RemindMe includes an Add Reminder Siri Shortcut. You can also choose Add to Calendar from a task’s menu when it has a reminder time. Calendar access may be required to create the event.</p>
           </article>
         </div>
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <h2 id="closing-title">Capture it now. Get reminded when it matters.</h2>
-        <p>Plan your day, keep projects moving, remember an errand, or follow up with someone. RemindMe gives every task a place—and helps bring it back at the right time.</p>
+        <h2 id="closing-title">Still need help?</h2>
+        <p>Send a support request through GitHub. Issues are public, so please don’t include personal information, private task details, or other sensitive data.</p>
+        <p class="support-action"><a class="button" href="https://github.com/surojl1/remindmee.github.io/issues/new">Open a support request</a></p>
       </section>
     </main>
 
-    <footer>RemindMe · Tasks and reminders for all of life.</footer>
+    <footer>RemindMe Support · <a href="marketing.html">About the app</a></footer>
   </div>
 </body>
 </html>
